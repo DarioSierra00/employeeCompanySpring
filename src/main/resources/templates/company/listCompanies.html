@@ -18,6 +18,14 @@
 		<td th:text="${company.name}"></td>
 		<td th:text="${company.address}"></td>
 		<td th:text="${company.city}"></td>
+		<td><form th:action="@{editCompany}" th:object="${company}">
+			<input type="text" th:value="${company.id}" name="id" id="id" class="form-control" hidden>
+			<button>Edit</button>
+		</form></td>
+		<td><form th:action="@{deleteCompany}">
+			<input type="text" th:value="${company.id}" name="id" id="id" class="form-control" hidden>
+			<button>Delete</button>
+		</form></td>
 	</tr>
 	</thead>
 </table>

@@ -18,4 +18,12 @@ public class CompanyService {
 	public List<Company> getCompanies(){
 		return companyRepository.findAll();
 	}
+	
+	public void addCompany(Company company){
+		companyRepository.save(company);
+	}
+	
+	public void deleteCompany(Company company) {
+		companyRepository.delete(company);
+	}
 }
