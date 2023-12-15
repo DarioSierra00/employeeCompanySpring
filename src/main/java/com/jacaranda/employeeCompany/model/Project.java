@@ -8,25 +8,22 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
-@Entity	
-@Table(name="company")
-public class Company {
-	
+@Entity
+public class Project {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String name;
-	private String address;
-	private String city;
+	private double butget;
 	
-	@OneToMany(mappedBy = "company")
+	@OneToMany(mappedBy = "project")
 	private List<CompanyProject> listCompanyProject;
 	
-	@OneToMany(mappedBy = "company")
-	private List<Employee> listEmployee;
+	@OneToMany(mappedBy = "project")
+	private List<EmployeeProject> listEmployeeProject;
 	
 	public Integer getId() {
 		return id;
@@ -40,17 +37,11 @@ public class Company {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
+	public double getButget() {
+		return butget;
 	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setButget(double butget) {
+		this.butget = butget;
 	}
 	@Override
 	public int hashCode() {
@@ -64,7 +55,7 @@ public class Company {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Company other = (Company) obj;
+		Project other = (Project) obj;
 		return Objects.equals(id, other.id);
 	}
 	

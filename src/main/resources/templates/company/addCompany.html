@@ -16,12 +16,16 @@
 	            <h1>Add Company</h1>
 	          </div>
 	
-	          <form method="get" th:action="@{saveCompany}" th:object="${company}">
-		           <div class=" mb-3">
+				
+	          <form method="get" th:if="${param.add}" th:action="@{addCompany}" th:object="${company}">
+			  <form method="get" th:if="${param.delete}" th:action="@{deleteCompany}" th:object="${company}">
+	          <form method="get" th:if="${param.edit}" th:action="@{editCompany}" th:object="${company}">
+				<span th:if="${edit != null or delete != null}">
+				   <div class=" mb-3">
 		   				<label for="id" class="form-label">ID</label>
-		   				<input type="text" th:field="*{id}" class="form-control" id="id" name="id" placeholder="Enter id company" required>
+		   				<input type="text" th:field="*{id}" class="form-control" id="id" name="id" placeholder="Enter id company" readonly>
 		           </div>
-		
+				</span>
 		           <div class=" mb-3">
 		            	<label for="nameCompany" class="form-label">Name Company</label>
 		   				<input type="text" th:field="*{name}" class="form-control" id="nameCompany" name="nameCompany" placeholder="Enter name Company" required>

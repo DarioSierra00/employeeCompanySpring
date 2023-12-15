@@ -23,7 +23,7 @@ public class CompanyController {
 		List<Company> listCompanies = companyService.getCompanies();
 		model.addAttribute("listCompanies", listCompanies);
 		
-		return "company/listCompanies";
+		return "/company/listCompanies";
 	}
 	
 	@GetMapping("/addCompany")
@@ -31,7 +31,7 @@ public class CompanyController {
 		Company company = new Company();
 		model.addAttribute("company",company);
 		
-		return "company/addCompany";
+		return "/company/addCompany";
 	}
 	
 	@GetMapping("/saveCompany")
@@ -40,7 +40,7 @@ public class CompanyController {
 		model.addAttribute("company",company);
 		companyService.addCompany(companySave);
 		model.addAttribute("add", "Compañia añadida correctamente");
-		return "company/addCompany";
+		return "/company/addCompany";
 	}
 	
 	@GetMapping("/deleteCompany")
@@ -48,7 +48,7 @@ public class CompanyController {
 		
 		model.addAttribute("company",deleteCompany);
 		
-		return "company/deleteCompany";
+		return "/company/addCompany";
 	}
 	
 	@GetMapping("/confirmDeleteCompany")
@@ -57,23 +57,22 @@ public class CompanyController {
 		model.addAttribute("company",company);
 		companyService.deleteCompany(deleteCompany);
 		model.addAttribute("delete", "Compañia borrada correctamente");
-		return "company/deleteCompany";
+		return "/company/deleteCompany";
 	}
 	
 	@GetMapping("/editCompany")
-	public String editCompany(Model model,@RequestParam("id") Company companyEdit) {
+	public String editCompany(Model model,@RequestParam("id") Company company) {
 		
-		model.addAttribute("company",companyEdit);
+		model.addAttribute("company",company);
 		
-		return "company/editCompany";
+		return "/company/addCompany";
 	}
 	
 	@GetMapping("/confirmEditCompany")
 	public String confirmEditCompany(Model model,@ModelAttribute("company") Company editCompany) {
-		Company company = new Company();
-		model.addAttribute("company",company);
+		model.addAttribute("company",editCompany);
 		companyService.addCompany(editCompany);
 		model.addAttribute("edit", "Compañia editada correctamente");
-		return "company/editCompany";
+		return "/company/editCompany";
 	}
 }

@@ -20,10 +20,12 @@
 		<td th:text="${company.city}"></td>
 		<td><form th:action="@{editCompany}" th:object="${company}">
 			<input type="text" th:value="${company.id}" name="id" id="id" class="form-control" hidden>
+			<input type="text" value="edit" name="edit" id="edit" class="form-control" hidden>
 			<button>Edit</button>
 		</form></td>
 		<td><form th:action="@{deleteCompany}">
 			<input type="text" th:value="${company.id}" name="id" id="id" class="form-control" hidden>
+			<input type="text" value="delete" name="delete" id="delete" class="form-control" hidden>
 			<button>Delete</button>
 		</form></td>
 	</tr>

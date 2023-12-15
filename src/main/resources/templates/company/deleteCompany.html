@@ -17,7 +17,7 @@
 	          <form method="get" th:action="@{confirmDeleteCompany}" th:object="${company}">
 		           <div class=" mb-3">
 		   				<label for="id" class="form-label">ID</label>
-		   				<input type="text" th:field="*{id}" class="form-control" id="id" name="id" placeholder="Enter id company" required>
+		   				<input type="text" th:field="*{id}" class="form-control" id="id" name="id" placeholder="Enter id company" readonly>
 		           </div>
 		
 		           <div class=" mb-3">
